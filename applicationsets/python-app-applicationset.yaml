@@ -1,0 +1,39 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: python-app-applicationset
+  namespace: argocd
+spec:
+  generators:
+    - list:
+        elements:
+          - cluster: kind-kind
+            namespace: default
+            server: https://127.0.0.1:51476
+            environment: kind-kind
+          - cluster: minikube
+            namespace: default
+            server: https://127.0.0.1:54901
+            environment: minikube
+  template:
+    metadata:
+      name: python-app-{{environment}}
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/tejassassin/python-app.git
+        targetRevision: main
+        path: .
+        helm:
+          releaseName: python-app-{{environment}}
+      destination:
+        server: "{{server}}"
+        namespace: "{{namespace}}"
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true
+          - PrunePropagationPolicy=foreground
+          - PruneLast=true
