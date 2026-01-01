@@ -9,11 +9,11 @@ spec:
         elements:
           - cluster: kind-kind
             namespace: default
-            server: https://127.0.0.1:51476
+            server: kind-kind
             environment: kind-kind
           - cluster: minikube
             namespace: default
-            server: https://127.0.0.1:54901
+            server: minikube
             environment: minikube
   template:
     metadata:
