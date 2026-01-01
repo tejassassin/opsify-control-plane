@@ -3,15 +3,20 @@ kind: ApplicationSet
 metadata:
   name: python-app-applicationset
   namespace: argocd
+  resourceVersion: "591188"
+  uid: bd5a312f-3648-44c9-882a-a8a5e73ad97f
+  creationTimestamp: 2026-01-01T12:15:31.000Z
 spec:
   generators:
     - list:
         elements:
           - cluster: kind-kind
             namespace: default
+            server: https://127.0.0.1:51476
             environment: kind-kind
           - cluster: minikube
             namespace: default
+            server: https://127.0.0.1:54901
             environment: minikube
   template:
     metadata:
