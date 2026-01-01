@@ -1,0 +1,31 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: opsify-applicationsets
+  namespace: argocd
+spec:
+  generators:
+    - git:
+        repoURL: REPLACE_WITH_YOUR_CONTROL_REPO_URL
+        revision: main
+        directories:
+          - path: applicationsets/*
+  template:
+    metadata:
+      name: '{{path.basename}}'
+    spec:
+      project: default
+      source:
+        repoURL: REPLACE_WITH_YOUR_CONTROL_REPO_URL
+        targetRevision: main
+        path: '{{path}}'
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: argocd
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true
+
