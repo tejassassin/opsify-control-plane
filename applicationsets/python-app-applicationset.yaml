@@ -3,6 +3,9 @@ kind: ApplicationSet
 metadata:
   name: python-app-applicationset
   namespace: argocd
+  resourceVersion: "572327"
+  uid: 20b2e8a4-5c93-4012-ac88-c9401220adc8
+  creationTimestamp: 2026-01-01T06:04:13.000Z
 spec:
   generators:
     - list:
