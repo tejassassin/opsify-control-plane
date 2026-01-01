@@ -3,9 +3,6 @@ kind: ApplicationSet
 metadata:
   name: python-app-applicationset
   namespace: argocd
-  resourceVersion: "592397"
-  uid: c1856717-67e7-42a7-b4cb-dec61f656ccc
-  creationTimestamp: 2026-01-01T12:24:38.000Z
 spec:
   generators:
     - list:
@@ -13,9 +10,6 @@ spec:
           - cluster: kind-kind
             namespace: default
             environment: kind-kind
-          - cluster: minikube
-            namespace: default
-            environment: minikube
   template:
     metadata:
       name: python-app-{{environment}}
