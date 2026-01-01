@@ -26,8 +26,6 @@ spec:
         path: .
         helm:
           releaseName: python-app-{{environment}}
-          valueFiles:
-            - values-{{environment}}.yaml
       destination:
         server: "{{cluster}}"
         namespace: "{{namespace}}"
