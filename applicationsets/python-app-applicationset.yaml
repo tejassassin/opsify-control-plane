@@ -29,7 +29,7 @@ spec:
           valueFiles:
             - values-{{environment}}.yaml
       destination:
-        server: "{{server}}"
+        server: "{{cluster}}"
         namespace: "{{namespace}}"
       syncPolicy:
         automated:
