@@ -10,9 +10,11 @@ spec:
           - cluster: kind-kind
             namespace: default
             environment: kind-kind
+            server: https://127.0.0.1:51476
           - cluster: minikube
             namespace: default
             environment: minikube
+            server: https://127.0.0.1:54901
   template:
     metadata:
       name: python-app-{{environment}}
