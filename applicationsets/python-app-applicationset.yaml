@@ -3,6 +3,9 @@ kind: ApplicationSet
 metadata:
   name: python-app-applicationset
   namespace: argocd
+  resourceVersion: "589412"
+  uid: 432858c6-7ac8-4811-aac6-0126405d119a
+  creationTimestamp: 2026-01-01T11:56:16.000Z
 spec:
   generators:
     - list:
@@ -26,10 +29,8 @@ spec:
         path: .
         helm:
           releaseName: python-app-{{environment}}
-          valueFiles:
-            - values-{{environment}}.yaml
       destination:
-        name: "{{cluster}}"
+        server: "{{cluster}}"
         namespace: "{{namespace}}"
       syncPolicy:
         automated:
