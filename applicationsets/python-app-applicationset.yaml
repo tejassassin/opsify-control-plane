@@ -30,9 +30,6 @@ spec:
         name: "{{cluster}}"
         namespace: "{{namespace}}"
       syncPolicy:
-        automated:
-          prune: true
-          selfHeal: false
         syncOptions:
           - CreateNamespace=true
           - PrunePropagationPolicy=foreground
