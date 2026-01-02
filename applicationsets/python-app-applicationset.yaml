@@ -10,6 +10,9 @@ spec:
           - cluster: kind-kind
             namespace: default
             environment: kind-kind
+          - cluster: kind-opsify
+            namespace: default
+            environment: kind-opsify
   template:
     metadata:
       name: python-app-{{environment}}
